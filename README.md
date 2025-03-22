@@ -11,4 +11,4 @@
 #### This dataset simulates real-world transactions and is used to replicate a business use case for building a modern data platform.
 
 ## Architecture
-[image](https://github.com/user-attachments/assets/d70a8388-9628-4f1c-821f-7136b8b69fcb)
+![image](https://github.com/user-attachments/assets/d70a8388-9628-4f1c-821f-7136b8b69fcb)
