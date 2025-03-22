@@ -12,3 +12,15 @@
 
 ## Architecture
 ![image](https://github.com/user-attachments/assets/d70a8388-9628-4f1c-821f-7136b8b69fcb)
+
+## Step-by-Step Implementation
+#### Resource Deployment in Azure
+Provisioned required services via Azure Resource Manager (ARM) templates:
+
+Azure Synapse Analytics
+
+Azure Data Factory
+
+Azure Data Lake Storage
+
+Validated the deployment via Azure Portal
