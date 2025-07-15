@@ -1,0 +1,19 @@
+output "resource_group_name" {
+  value = azurerm_resource_group.main.name
+}
+
+output "storage_account_name" {
+  value = azurerm_storage_account.datalake.name
+}
+
+output "databricks_workspace_url" {
+  value = azurerm_databricks_workspace.main.workspace_url
+}
+
+output "synapse_workspace_name" {
+  value = azurerm_synapse_workspace.main.name
+}
+
+output "data_factory_name" {
+  value = azurerm_data_factory.main.name
+} 

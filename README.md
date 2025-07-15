@@ -1,62 +1,58 @@
 # End-to-End E-Commerce Data Engineering Pipeline on Azure
 
 ## Project Overview
-#### This project demonstrates the design and implementation of a fully dynamic and scalable data pipeline using Microsoft Azure services. The goal was to ingest, transform, and analyze e-commerce sales data efficiently using cloud-native solutions. The entire data lifecycle—from raw ingestion to analytics-ready datasets—was orchestrated using a combination of Azure Data Factory, Azure Databricks, and Azure Synapse Analytics, with final visualizations set up for Power BI.
+This project demonstrates a fully modular, production-grade data pipeline for e-commerce analytics using Microsoft Azure services. It covers the entire data lifecycle: ingestion, transformation, analytics-ready datasets, and business value reporting (sales, inventory, etc.).
 
-## Tech Stack
-#### Azure Data Factory |  Azure Databricks |  Azure Synapse Analytics |  Azure Data Lake Storage |  Power BI
+## Modular Project Structure
+```
+/iac/                # Infrastructure as Code (Terraform)
+/src/
+  /ingestion/        # Data Factory pipeline definitions
+  /transform/        # Databricks notebooks/scripts
+  /serving/          # Synapse SQL scripts
+  /utils/            # Shared helper scripts
+/monitoring/         # Monitoring and alerting scripts
+/ci-cd/              # CI/CD pipeline definitions (GitHub Actions)
+/docs/               # Documentation, diagrams, data dictionary
+/tests/              # Automated tests
+/dataset/            # Source datasets (AdventureWorks)
+```
 
-## Data Description
-#### The dataset used in this project is a mock-up of e-commerce sales data
-#### This dataset simulates real-world transactions and is used to replicate a business use case for building a modern data platform.
+## Architecture Diagram
+<!-- Place the architecture diagram here -->
+![Architecture Diagram](docs/architecture.png)
 
-## Architecture
-![image](https://github.com/user-attachments/assets/d70a8388-9628-4f1c-821f-7136b8b69fcb)
+## Business Value
+- **Sales Analytics:** Track sales performance, trends, and KPIs across products, time, and territories.
+- **Inventory Analytics:** Monitor inventory levels, stockouts, and optimize supply chain operations.
+- **Customer Insights:** Analyze customer behavior, segmentation, and retention.
+- **Returns Analysis:** Identify return patterns and root causes.
 
-## Step-by-Step Implementation
-#### Resource Deployment in Azure
-#### Provisioned required services via Azure Resource Manager (ARM) templates:
+## Cost Optimization Strategies
+- Use auto-scaling for Databricks clusters.
+- Monitor and alert on Azure resource costs.
+- Leverage serverless Synapse SQL pools for ad-hoc analytics.
+- Store data in Parquet format with compression for storage and query efficiency.
 
-#### Azure Synapse Analytics
+## Best Practices
+- Modular, layered architecture (Bronze/Silver/Gold).
+- Infrastructure as Code for repeatable deployments.
+- Automated CI/CD for code and infrastructure.
+- Data quality checks and validation at each stage.
+- Monitoring and alerting for reliability and cost control.
+- Documentation and open source readiness for community collaboration.
+- See [Cost Optimization & Scalability Guide](docs/cost_optimization.md) for detailed strategies.
 
-#### Azure Data Factory
+## Getting Started:
+1. Deploy infrastructure using scripts in `/iac/`.
+2. Set up CI/CD using `/ci-cd/` workflows.
+3. Ingest data from `/dataset/` using Data Factory pipelines in `/src/ingestion/`.
+4. Transform data with Databricks notebooks in `/src/transform/`.
+5. Serve analytics-ready data with Synapse scripts in `/src/serving/`.
+6. Monitor pipelines and resources using `/monitoring/` scripts.
+7. Run tests from `/tests/` to validate data and pipeline logic.
+8. Explore business value dashboards and analytics in `/docs/`.
 
-#### Azure Data Lake Storage
+---
 
-#### Validated the deployment via Azure Portal
-
-#### Data Ingestion with Azure Data Factory
-#### Created two separate dynamic pipelines (raw_data and raw_data_2) using the Lookup + ForEach + Copy Data pattern.
-
-#### The Lookup activity dynamically fetches metadata or file names.
-
-#### ForEach loops through the returned values and performs data copy using the Copy Data activity.
-
-#### Source: HTTP endpoint simulating external raw data feed
-#### Sink: Azure Data Lake (Bronze Layer)
-#### Runtime: AutoResolveIntegrationRuntime
-
-#### Data Transformation Using Azure Databricks
-#### Launched Azure Databricks notebooks to perform cleaning, null-handling, type casting, and derived column generation.
-
-#### Applied business logic such as:
-
-##### Normalization of order quantities
-
-##### Derivation of time-based features
-
-#### Product category enrichments
-
-#### Data Serving with Azure Synapse Analytics
-#### Created external tables over Parquet files using CREATE EXTERNAL TABLE in Synapse SQL.
-
-#### Utilized OPENROWSET for on-demand access to Parquet files stored in Azure Data Lake.
-
-#### Final Output (Gold Layer)
-#### The final  table exposed analytics-ready data for downstream use in Power BI. Key highlights include:
-
-#### Clean schema for order, product, and customer data
-
-#### Read-optimized Parquet format with SnappyCodec compression
-
-#### Seamless integration with Power BI for visualization
+For detailed setup, see the documentation in `/docs/` and the quickstart guide.
