@@ -1,4 +1,3 @@
-# To use this script, install dependencies with:
 # pip install -r requirements.txt
 
 try:
