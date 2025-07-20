@@ -9,7 +9,7 @@ except ImportError as e:
     print("Missing required packages. Please install with: pip install -r requirements.txt")
     raise e
 
-# Load data (example: AdventureWorks_Sales_2017.csv)
+# Load data : replace with desired data
 df = pd.read_csv('../../dataset/AdventureWorks_Sales_2017.csv')
 ge_df = ge.from_pandas(df)
 

@@ -1,4 +1,4 @@
-# Sample Terraform configuration for Azure Data Engineering Pipeline
+# Terraform configuration for Azure Data Engineering Pipeline
 
 provider "azurerm" {
   features {}
@@ -6,8 +6,7 @@ provider "azurerm" {
 
 # Variables
 variable "resource_group_name" {
-  description = "Name of the resource group"
-  type        = string
+  description = "xxx"
   default     = "azdatabricks1-rg"
 }
 
